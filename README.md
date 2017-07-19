@@ -9,10 +9,10 @@ _An unbeatable game of tic tac toe built using AI algorithm minimax and alpha-be
 ## Puesdo code
 
 * _function minimax(node, depth, maximizingPlayerTurn) -- (returns terminal value, returns best value for max, or returns best value for min)_
-# _base case (needed because minimax based off recursion)_
-# _if depth = 0 or node is terminal node { return the heuristic value of node }_
-# _if maximizingPlayerTurn = true { bestValue = -infinity; foreach(child : node) { val = minimax(child, depth - 1, false) } }_
-# _if maximizingPlayerTurn = false { bestValue = infinity }_
+* _base case (needed because minimax based off recursion)_
+* _if depth = 0 or node is terminal node { return the heuristic value of node }_
+* _if maximizingPlayerTurn = true { bestValue = -infinity; foreach(child : node) { val = minimax(child, depth - 1, false) } }_
+* _if maximizingPlayerTurn = false { bestValue = infinity }_
 
 <!-- ## Specs
 * _See a list of all barbers_

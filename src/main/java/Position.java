@@ -49,6 +49,11 @@ public class Position {
     return new Position(newBoard, turn == 'x' ? 'o' : 'x');
   }
 
+  public Position(String str, char turn) {
+    this.board = str.toCharArray();
+    this.turn = turn;
+  }
+
   public Integer[] possibleMoves() {
     List<Integer> list = new LinkedList<Integer>();
     for (int i = 0; i < board.length; i++) {
@@ -59,6 +64,20 @@ public class Position {
     Integer[] array = new Integer[list.size()];
     list.toArray(array);
     return array;
+  }
+
+  public int minimax() {
+    if (win('x')) { return 100; }
+    if (win('o')) { return -100; }
+    if (possibleMoves().length == 0) { return 0; }
+    Integer mm = null;
+    for (Integer index : possibleMoves()) {
+      Integer value = move(index).minimax();
+      if (mm == null || (turn == 'x' && mm < value) || (turn == 'o' && value < mm)) {
+        mm = value;
+      }
+    }
+    return mm + (turn == 'x' ? -1 : 1);
   }
 
   @Override
